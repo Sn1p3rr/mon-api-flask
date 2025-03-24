@@ -2,6 +2,10 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return "🚀 L'API est en ligne ! Va sur /api/deals pour voir les deals."
+
 @app.route('/api/deals')
 def get_deals():
     deals = [
