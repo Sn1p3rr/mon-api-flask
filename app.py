@@ -2,7 +2,7 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # ← AUTORISE toutes les origines (sinon WordPress bloque)
+CORS(app, resources={r"/api/*": {"origins": "*"}})  # ← autorise toutes les origines pour /api/*
 
 @app.route('/')
 def index():
