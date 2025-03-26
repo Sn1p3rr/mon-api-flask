@@ -1,10 +1,12 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # ← AUTORISE toutes les origines (sinon WordPress bloque)
 
 @app.route('/')
 def index():
-    return "🚀 L'API est en ligne ! Va sur /api/deals pour voir les deals."
+    return "API OK"
 
 @app.route('/api/deals')
 def get_deals():
@@ -15,4 +17,4 @@ def get_deals():
     return jsonify(deals)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5050)
